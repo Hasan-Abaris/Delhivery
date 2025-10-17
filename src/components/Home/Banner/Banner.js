@@ -1,4 +1,5 @@
-import Link from 'next/link'
+"use client";
+import Link from "next/link";
 
 export default function Banner() {
   return (
@@ -11,23 +12,27 @@ export default function Banner() {
         backgroundRepeat: "no-repeat",
       }}
     >
-      {/* Optional overlay for better readability */}
-      <div className="absolute inset-0 bg-black/40"></div>
+      {/* Overlay for readability */}
+      <div className="absolute inset-0 bg-black/50"></div>
 
-      {/* ✅ Content */}
+      {/* Content */}
       <div className="relative z-10 max-w-3xl">
         <h1 className="text-4xl sm:text-6xl font-bold mb-6 leading-tight tracking-tight">
-          Move Your World — <span className="text-orange-400">Fast, Smart, Secure</span>
+          Reliable. Scalable. Data-Driven Logistics
         </h1>
         <p className="text-lg text-gray-300 mb-10 max-w-2xl mx-auto">
-          <i>We provide end-to-end courier and logistics solutions designed to keep your business running smoothly.</i>
+          Delia UG provides structured fleet solutions and professional driver services
+          for businesses seeking reliable, efficient last-mile delivery. Operational
+          excellence, transparent communication, and data-driven performance.
         </p>
+
+        {/* CTA Buttons */}
         <div className="flex justify-center gap-5 flex-wrap">
           <Link
-            href="/track"
+            href="/apply?type=driver"
             className="bg-orange-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-orange-600 transition shadow-md"
           >
-            Track Shipment
+            Apply as Driver
           </Link>
           <Link
             href="/services"
@@ -38,5 +43,5 @@ export default function Banner() {
         </div>
       </div>
     </section>
-  )
+  );
 }
