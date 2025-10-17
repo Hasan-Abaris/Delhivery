@@ -94,7 +94,7 @@ export default function Footer() {
             <ul className="mt-2 space-y-1 text-sm text-white/80">
               <li>
                 <a href="mailto:hello@seplo.io" className="hover:underline">
-                  info@deliaug.com
+                  info@deliag.com
                 </a>
               </li>
               <li>
