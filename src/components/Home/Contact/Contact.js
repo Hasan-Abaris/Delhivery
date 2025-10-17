@@ -1,152 +1,119 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
+import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from "react-toastify";
+import {
+  DocumentTextIcon,
+  UsersIcon,
+  EnvelopeIcon,
+  ScaleIcon,
+} from "@heroicons/react/24/outline";
 
 const ContactSection = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const onSubmit = async (data) => {
+    setIsSubmitting(true);
+    try {
+      // Mock API call
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      toast.success("Message sent successfully!", {
+        position: "top-right",
+        autoClose: 3000,
+      });
+      reset();
+    } catch {
+      toast.error("Failed to send message. Please try again.", {
+        position: "top-right",
+        autoClose: 3000,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section
       id="contact"
-      className="min-h-screen flex flex-col justify-center"
-      style={{
-        background:
-          "linear-gradient(135deg, hsl(var(--primary-dark)), hsl(var(--primary)))",
-      }}
+      className="min-h-screen flex flex-col justify-center py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700"
+      aria-labelledby="contact-heading"
     >
-      <div className="py-12 text-center bg-black">
-        <div className="container mx-auto px-6 max-w-4xl ">
-          <Image
-                     src="/images/favicon.png"
-                     alt="Courier Connect Logo"
-                     width={50} 
-                     height={50} 
-                     className="rounded-full"
-                   />
+      <ToastContainer />
 
-          {/* Heading */}
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-            Lets Talk Logistics.
-          </h2>
-          <p className="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-            Whether you are a courier, fleet, or enterprise, we build transparent, fair logistics together.
-          </p>
-        </div>
+      {/* Header */}
+      <div className="text-center mb-16 px-4 sm:px-6">
+        <Image
+          src="/images/favicon.png"
+          alt="Delia UG Logo"
+          width={80}
+          height={80}
+          className="rounded-full mx-auto mb-6 shadow-lg"
+          priority
+        />
+        <h2
+          id="contact-heading"
+          className="text-4xl sm:text-5xl font-extrabold text-white mb-4 drop-shadow-lg tracking-tight"
+        >
+          Let&apos;s Talk Logistics
+        </h2>
+        <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed opacity-90">
+          Whether you&apos;re a courier, fleet, or enterprise, we provide
+          structured, transparent, and data-driven logistics solutions.
+        </p>
       </div>
 
       {/* Contact Cards */}
-      <div className="container mx-auto px-6 max-w-5xl pb-2 bg-amber-950 mt-10 border-2 rounded-2xl">
-        <div className="grid md:grid-cols-2 gap-4 mb-20 mt-5 rounded-2xl ">
+      <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
           <ContactCard
             title="Onboarding Team"
-            email="info@deliaug.com"
+            email="onboarding@deliaug.com"
             description="For help applying or submitting documents."
-            icon={
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-file-text w-6 h-6 text-white"
-              >
-                <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path>
-                <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
-                <path d="M10 9H8"></path>
-                <path d="M16 13H8"></path>
-                <path d="M16 17H8"></path>
-              </svg>
-            }
-            gradient="bg-[linear-gradient(135deg,hsl(var(--brand-blue)),hsl(var(--brand-blue)))]"
+            icon="file-text"
+            gradient="from-gray-700 to-gray-800"
           />
-
           <ContactCard
             title="Fleet & Courier Support"
-            email="info@deliaug.com"
-            description="Active partners or couriers needing help."
-            icon={
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-users w-6 h-6 text-white"
-              >
-                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
-            }
-            gradient="bg-[linear-gradient(135deg,hsl(var(--brand-blue)),hsl(var(--brand-blue)))]"
+            email="support@deliaug.com"
+            description="For active partners or couriers needing help."
+            icon="users"
+            gradient="from-gray-700 to-gray-800"
           />
-
           <ContactCard
             title="General Inquiries"
             email="info@deliaug.com"
-            description="For press, partnerships, or questions."
-            icon={
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-mail w-6 h-6 text-white"
-              >
-                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-              </svg>
-            }
-            gradient="bg-[linear-gradient(135deg,hsl(var(--orange-primary)),hsl(var(--orange-dark)))]"
+            description="For press, partnerships, or general questions."
+            icon="mail"
+            gradient="from-orange-500 to-red-500"
           />
-
           <ContactCard
             title="Legal & Compliance"
-            email="info@deliaug.com"
-            description="Contract-related or compliance inquiries."
-            icon={
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-scale w-6 h-6 text-white"
-              >
-                <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
-                <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
-                <path d="M7 21h10"></path>
-                <path d="M12 3v18"></path>
-                <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path>
-              </svg>
-            }
-            gradient="bg-[linear-gradient(135deg,hsl(var(--orange-primary)),hsl(var(--orange-dark)))]"
+            email="legal@deliaug.com"
+            description="For contracts or compliance inquiries."
+            icon="scale"
+            gradient="from-orange-500 to-red-500"
           />
         </div>
 
         {/* Schedule Call */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-16">
           <a
             href="https://calendar.app.google/Hkcj5jeSGEp9kwpx9"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Schedule a call on Google Calendar"
-            className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-11 px-8 rounded-[var(--radius-control)] bg-[hsl(var(--primary))] text-white hover:bg-[hsl(var(--primary))]/90 border-none"
+            className="inline-block px-8 py-4 text-lg font-semibold rounded-lg bg-gray-800 text-white hover:bg-gray-700 shadow-lg transition-all duration-300 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+            aria-label="Schedule a call with our team"
           >
             Schedule a Call
           </a>
@@ -154,17 +121,79 @@ const ContactSection = () => {
 
         {/* Contact Form */}
         <div className="max-w-2xl mx-auto">
-          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 shadow-lg">
-            <h3 className="text-xl font-bold text-white mb-6 text-center">Send us a Message</h3>
-            <form className="space-y-4">
-              <InputField id="contact-name" label="Full Name *" placeholder="Your full name" />
-              <InputField id="contact-email" label="Email *" placeholder="your@email.com" type="email" />
-              <TextAreaField id="contact-message" label="Message *" placeholder="Tell us how we can help..." />
+          <div className="bg-gray-900/70 backdrop-blur-md border border-gray-700 rounded-2xl p-8 shadow-xl">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">
+              Apply as Driver / Fleet Owner
+            </h3>
+            <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+              <InputField
+                id="contact-name"
+                label="Full Name or Company Name *"
+                placeholder="Your full name or company"
+                register={register("name", { required: "Name is required" })}
+                error={errors.name?.message}
+              />
+              <InputField
+                id="contact-email"
+                label="Email *"
+                placeholder="your@email.com"
+                type="email"
+                register={register("email", {
+                  required: "Email is required",
+                  pattern: {
+                    value: /^\S+@\S+$/i,
+                    message: "Invalid email address",
+                  },
+                })}
+                error={errors.email?.message}
+              />
+              <InputField
+                id="contact-phone"
+                label="Phone *"
+                placeholder="+49..."
+                type="tel"
+                register={register("phone", { required: "Phone is required" })}
+                error={errors.phone?.message}
+              />
+              <SelectField
+                id="contact-jobtype"
+                label="Job Type *"
+                options={["Full Time", "Part Time", "Mini Job"]}
+                register={register("jobtype", {
+                  required: "Job type is required",
+                })}
+                error={errors.jobtype?.message}
+              />
+              <TextAreaField
+                id="contact-message"
+                label="Message"
+                placeholder="Additional information or queries..."
+                register={register("message")}
+                error={errors.message?.message}
+              />
+              <InputField
+                id="contact-upload"
+                label="Upload Documents (Optional)"
+                type="file"
+                register={register("upload")}
+              />
               <button
                 type="submit"
-                className="inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 w-full py-3 text-lg rounded-[var(--radius-control)] bg-[hsl(var(--brand-blue))] hover:bg-[hsl(var(--brand-blue))]/90 text-white font-semibold border-none shadow-lg hover:shadow-xl transition-all duration-300"
+                disabled={isSubmitting}
+                className={`w-full py-3 text-lg font-semibold rounded-lg bg-gradient-to-r from-gray-700 to-gray-800 text-white shadow-lg transition-all duration-300 ${
+                  isSubmitting
+                    ? "opacity-50 cursor-not-allowed"
+                    : "hover:from-gray-600 hover:to-gray-700 hover:shadow-2xl"
+                } focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-900`}
+                aria-label="Send your application"
               >
-                Send Message
+                {isSubmitting ? (
+                  <span className="flex items-center justify-center animate-pulse">
+                    Submitting...
+                  </span>
+                ) : (
+                  "Submit Application"
+                )}
               </button>
             </form>
           </div>
@@ -174,53 +203,107 @@ const ContactSection = () => {
   );
 };
 
-// Card Component
-const ContactCard = ({ title, email, description, icon, gradient }) => (
-  <div className="group bg-white/5 backdrop-blur-sm border border-white/20 rounded-[var(--radius-card)] p-6 hover:bg-white/10 hover:border-white/20 transition-all duration-300 cursor-pointer hover:scale-[1.02] h-full">
-    <div className="flex items-start gap-4">
-      <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${gradient} group-hover:scale-110 transition-transform duration-300`}>
-        {icon}
-      </div>
-      <div className="flex-1">
-        <h3 className="text-lg font-bold text-white mb-2">{title}</h3>
-        <a
-          href={`mailto:${email}`}
-          className="text-blue-300 font-semibold hover:text-blue-200 transition-colors duration-200 block mb-2 text-left"
-          title={`Click to open email`}
+// Contact Card
+const ContactCard = ({ title, email, description, icon, gradient }) => {
+  const icons = {
+    "file-text": <DocumentTextIcon className="w-6 h-6 text-white" />,
+    users: <UsersIcon className="w-6 h-6 text-white" />,
+    mail: <EnvelopeIcon className="w-6 h-6 text-white" />,
+    scale: <ScaleIcon className="w-6 h-6 text-white" />,
+  };
+
+  return (
+    <div className="group p-6 rounded-2xl shadow-lg backdrop-blur-md border border-gray-700 bg-gray-900/60 hover:scale-105 transition-all duration-300 cursor-pointer focus-within:ring-2 focus-within:ring-gray-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-900">
+      <div className="flex items-start gap-4">
+        <div
+          className={`w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-br ${gradient} transition-transform duration-300 group-hover:scale-110 group-focus-within:scale-110`}
         >
-          {email}
-        </a>
-        <p className="text-blue-200 text-sm leading-relaxed">{description}</p>
+          {icons[icon]}
+        </div>
+        <div className="flex-1">
+          <h3 className="text-lg font-bold text-white mb-1">{title}</h3>
+          <a
+            href={`mailto:${email}`}
+            className="text-gray-300 font-semibold hover:text-gray-100 transition-colors text-sm block mb-1 focus:outline-none focus:underline"
+            aria-label={`Email ${title} at ${email}`}
+          >
+            {email}
+          </a>
+          <p className="text-gray-400 text-sm">{description}</p>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 // Input Component
-const InputField = ({ id, label, placeholder, type = "text" }) => (
+const InputField = ({
+  id,
+  label,
+  placeholder,
+  type = "text",
+  register,
+  error,
+}) => (
   <div className="space-y-2">
-    <label className="text-sm font-medium leading-none text-white" htmlFor={id}>{label}</label>
+    <label className="text-sm font-medium text-gray-100" htmlFor={id}>
+      {label}
+    </label>
     <input
       id={id}
       type={type}
       placeholder={placeholder}
-      required
-      className="flex h-10 w-full rounded-md border px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 bg-white/10 border-white/20 text-white placeholder:text-blue-200 focus:border-[hsl(var(--brand-blue))] focus:ring-[hsl(var(--brand-blue))] shadow-sm"
+      {...register}
+      className={`w-full px-4 py-2 rounded-lg border ${
+        error ? "border-red-500" : "border-gray-600"
+      } bg-gray-800/50 text-gray-100 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500 shadow-sm transition-all duration-300`}
+      aria-invalid={error ? "true" : "false"}
     />
+    {error && <p className="text-red-500 text-sm">{error}</p>}
+  </div>
+);
+
+// Select Component
+const SelectField = ({ id, label, options, register, error }) => (
+  <div className="space-y-2">
+    <label className="text-sm font-medium text-gray-100" htmlFor={id}>
+      {label}
+    </label>
+    <select
+      id={id}
+      {...register}
+      className={`w-full px-4 py-2 rounded-lg border ${
+        error ? "border-red-500" : "border-gray-600"
+      } bg-gray-800/50 text-gray-100 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500 shadow-sm transition-all duration-300`}
+    >
+      <option value="">Select a job type</option>
+      {options.map((opt) => (
+        <option key={opt} value={opt}>
+          {opt}
+        </option>
+      ))}
+    </select>
+    {error && <p className="text-red-500 text-sm">{error}</p>}
   </div>
 );
 
 // TextArea Component
-const TextAreaField = ({ id, label, placeholder }) => (
+const TextAreaField = ({ id, label, placeholder, register, error }) => (
   <div className="space-y-2">
-    <label className="text-sm font-medium leading-none text-white" htmlFor={id}>{label}</label>
+    <label className="text-sm font-medium text-gray-100" htmlFor={id}>
+      {label}
+    </label>
     <textarea
       id={id}
       placeholder={placeholder}
-      required
-      rows={4}
-      className="flex min-h-[80px] w-full rounded-md border px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 bg-white/10 border-white/20 text-white placeholder:text-blue-200 focus:border-[hsl(var(--brand-blue))] focus:ring-[hsl(var(--brand-blue))] shadow-sm"
+      rows={5}
+      {...register}
+      className={`w-full px-4 py-2 rounded-lg border ${
+        error ? "border-red-500" : "border-gray-600"
+      } bg-gray-800/50 text-gray-100 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500 shadow-sm transition-all duration-300`}
+      aria-invalid={error ? "true" : "false"}
     />
+    {error && <p className="text-red-500 text-sm">{error}</p>}
   </div>
 );
 

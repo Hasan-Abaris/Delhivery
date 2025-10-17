@@ -1,12 +1,12 @@
+import FloatingApplyButton from "@/components/Home/FloatingApplyButton";
 import HomeMain from "@/components/Home/Home";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <>
-      {/* <Header /> */}
       <HomeMain />
-      {/* <Footer /> */}
+      <FloatingApplyButton /> {/* floating button rendered on top of the page */}
     </>
   );
 }
