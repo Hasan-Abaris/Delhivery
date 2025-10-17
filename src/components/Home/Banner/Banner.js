@@ -13,7 +13,7 @@ export default function Banner() {
       }}
     >
       {/* Overlay for readability */}
-      <div className="absolute inset-0 bg-black/50"></div>
+      <div className="absolute inset-0 bg-black/50 mt-15"></div>
 
       {/* Content */}
       <div className="relative z-10 max-w-3xl">
