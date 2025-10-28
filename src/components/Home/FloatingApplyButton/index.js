@@ -13,7 +13,7 @@ export default function FloatingApplyButton() {
                  animate-bounce hover:animate-none transition-all duration-300"
       aria-label="Apply for a job"
     >
-      Apply Now <ArrowRight className="w-5 h-5" />
+      Apply as Driver <ArrowRight className="w-5 h-5" />
     </a>
   );
 }

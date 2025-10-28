@@ -4,6 +4,7 @@ import Link from "next/link";
 export default function Banner() {
   return (
     <section
+      id="banner" // ✅ Added this line
       className="relative flex flex-col items-center justify-center text-center py-28 px-6 overflow-hidden text-white"
       style={{
         backgroundImage: "url('/images/Banner.jpg')",
@@ -12,8 +13,8 @@ export default function Banner() {
         backgroundRepeat: "no-repeat",
       }}
     >
-      {/* Overlay for readability */}
-      <div className="absolute inset-0 bg-black/50 mt-15"></div>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/50"></div>
 
       {/* Content */}
       <div className="relative z-10 max-w-3xl">
@@ -21,26 +22,16 @@ export default function Banner() {
           Reliable. Scalable. Data-Driven Logistics
         </h1>
         <p className="text-lg text-gray-300 mb-10 max-w-2xl mx-auto">
-          Delia UG provides structured fleet solutions and professional driver services
-          for businesses seeking reliable, efficient last-mile delivery. Operational
-          excellence, transparent communication, and data-driven performance.
+          Delia UG provides structured fleet solutions and professional driver
+          services for businesses seeking reliable, efficient last-mile delivery.
+          We combine operational excellence with transparent communication and
+          data-driven fleet performance.
         </p>
+      </div>
 
-        {/* CTA Buttons */}
-        <div className="flex justify-center gap-5 flex-wrap">
-          <Link
-            href="/apply?type=driver"
-            className="bg-orange-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-orange-600 transition shadow-md"
-          >
-            Apply as Driver
-          </Link>
-          <Link
-            href="/services"
-            className="bg-transparent border border-gray-500 px-8 py-3 rounded-full font-semibold hover:bg-gray-800 transition"
-          >
-            Explore Services
-          </Link>
-        </div>
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-gray-300 animate-bounce">
+        ↓
       </div>
     </section>
   );
