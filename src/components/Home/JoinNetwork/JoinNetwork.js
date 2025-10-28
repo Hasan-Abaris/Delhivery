@@ -1,5 +1,11 @@
 import Link from "next/link";
-import { Truck, UserCheck, BarChart, Handshake, ArrowRight } from "lucide-react";
+import {
+  Truck,
+  UserCheck,
+  BarChart,
+  Handshake,
+  ArrowRight,
+} from "lucide-react";
 
 export default function JoinNetwork() {
   return (
@@ -15,9 +21,9 @@ export default function JoinNetwork() {
         </h2>
         <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed">
           Delia UG provides structured fleet solutions and professional driver
-          services for businesses seeking reliable, efficient last-mile delivery.{" "}
-          Transparent, fair, and data-driven operations for drivers, fleet owners,
-          and partners.
+          services for businesses seeking reliable, efficient last-mile
+          delivery. Transparent, fair, and data-driven operations for drivers,
+          fleet owners, and partners.
         </p>
 
         {/* Features Grid */}
@@ -56,17 +62,10 @@ export default function JoinNetwork() {
           </h3>
           <p className="text-gray-600 text-lg leading-relaxed mb-8">
             Delia acts as an external operations partner so companies don’t have
-            to build internal fleet management from scratch. We deliver dependable
-            operations, data-supported improvements, and a transparent partnership
-            model that scales as your business grows.
+            to build internal fleet management from scratch. We deliver
+            dependable operations, data-supported improvements, and a
+            transparent partnership model that scales as your business grows.
           </p>
-
-          <Link
-            href="#contact"
-            className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg text-lg font-semibold transition-colors"
-          >
-            Join Now <ArrowRight className="w-5 h-5" />
-          </Link>
         </div>
 
         {/* For Drivers & Fleet Owners */}
