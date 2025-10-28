@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <HomeMain />
-      <FloatingApplyButton /> {/* floating button rendered on top of the page */}
+      <FloatingApplyButton /> 
     </>
   );
 }
