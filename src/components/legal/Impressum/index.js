@@ -1,22 +1,27 @@
 "use client";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export default function LegalNotice() {
+  const { t } = useTranslation();
+
   return (
     <div className="container mx-auto px-6 py-16 ">
       <div className="max-w-4xl mx-auto mt-10">
-        <h1 className="text-4xl font-bold mb-8 text-center">Legal Notice</h1>
+        <h1 className="text-4xl font-bold mb-8 text-center">
+          {t("legalNotice.title")}
+        </h1>
 
         <div className="grid gap-6">
           {/* Company */}
           <div className="rounded-lg border bg-card text-card-foreground shadow-sm">
             <div className="flex flex-col space-y-1.5 p-6">
               <h3 className="text-2xl font-semibold leading-none tracking-tight">
-                Company
+                {t("legalNotice.company.title")}
               </h3>
             </div>
             <div className="p-6 pt-0">
-              <p className="font-semibold">Delia UG</p>
+              <p className="font-semibold">{t("legalNotice.company.name")}</p>
             </div>
           </div>
 
@@ -24,12 +29,12 @@ export default function LegalNotice() {
           <div className="rounded-lg border bg-card text-card-foreground shadow-sm">
             <div className="flex flex-col space-y-1.5 p-6">
               <h3 className="text-2xl font-semibold leading-none tracking-tight">
-                Address
+                {t("legalNotice.address.title")}
               </h3>
             </div>
             <div className="p-6 pt-0 space-y-1">
-              <p>Bonn</p>
-              <p>Germany</p>
+              <p>{t("legalNotice.address.city")}</p>
+              <p>{t("legalNotice.address.country")}</p>
             </div>
           </div>
 
@@ -37,12 +42,12 @@ export default function LegalNotice() {
           <div className="rounded-lg border bg-card text-card-foreground shadow-sm">
             <div className="flex flex-col space-y-1.5 p-6">
               <h3 className="text-2xl font-semibold leading-none tracking-tight">
-                Contact
+                {t("legalNotice.contact.title")}
               </h3>
             </div>
             <div className="p-6 pt-0 space-y-1">
-              <p>Phone: +91-8851746286</p>
-              <p>Email:info@deliaug.com</p>
+              <p>{t("legalNotice.contact.phone")}</p>
+              <p>{t("legalNotice.contact.email")}</p>
             </div>
           </div>
 
@@ -50,21 +55,21 @@ export default function LegalNotice() {
           <div className="rounded-lg border bg-card text-card-foreground shadow-sm">
             <div className="flex flex-col space-y-1.5 p-6">
               <h3 className="text-2xl font-semibold leading-none tracking-tight">
-                Legal Information
+                {t("legalNotice.legalInfo.title")}
               </h3>
             </div>
             <div className="p-6 pt-0 space-y-2">
-              <p>Register Court: Amtsgericht Berlin</p>
-              <p>Commercial Register Number: HRB (pending)</p>
-              <p>VAT ID: DE (pending)</p>
-              <p>Managing Director: (to be added)</p>
+              <p>{t("legalNotice.legalInfo.registerCourt")}</p>
+              <p>{t("legalNotice.legalInfo.commercialNumber")}</p>
+              <p>{t("legalNotice.legalInfo.vatId")}</p>
+              <p>{t("legalNotice.legalInfo.director")}</p>
               <br />
               <p className="font-medium">
-                Responsible for content according to § 55 para. 2 RStV
+                {t("legalNotice.legalInfo.responsible")}
               </p>
-              <p>Delia GmbH</p>
-              <p>Sample Street 123</p>
-              <p>10115 Berlin, Germany</p>
+              <p>{t("legalNotice.legalInfo.companyName")}</p>
+              <p>{t("legalNotice.legalInfo.street")}</p>
+              <p>{t("legalNotice.legalInfo.zipCity")}</p>
             </div>
           </div>
 
@@ -72,14 +77,12 @@ export default function LegalNotice() {
           <div className="rounded-lg border bg-card text-card-foreground shadow-sm">
             <div className="flex flex-col space-y-1.5 p-6">
               <h3 className="text-2xl font-semibold leading-none tracking-tight">
-                Liability Disclaimer
+                {t("legalNotice.liability.title")}
               </h3>
             </div>
             <div className="p-6 pt-0">
               <p className="text-sm text-muted-foreground">
-                Despite careful content control, we assume no liability for the
-                content of external links. The operators of the linked pages are
-                solely responsible for their content.
+                {t("legalNotice.liability.text")}
               </p>
             </div>
           </div>
