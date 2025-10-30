@@ -1,0 +1,146 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "services": "Unsere Dienstleistungen",
+    "join": "Beitreten",
+    "about": "Über uns",
+    "contact": "Kontakt aufnehmen"
+  },
+
+  "banner": {
+    "title": "Zuverlässig. Skalierbar. Datengetriebene Logistik",
+    "description": "Delia UG bietet strukturierte Flottenlösungen und professionelle Fahrerdienste für Unternehmen, die zuverlässige, effiziente Zustellung auf der letzten Meile benötigen. Wir kombinieren operative Exzellenz mit transparenter Kommunikation und datenbasierter Leistungsanalyse."
+  },
+
+  "join_network_section": {
+    "heading": "Treten Sie dem Netzwerk bei — als Fahrer oder Partner",
+    "description": "Delia UG bietet strukturierte Flottenlösungen und professionelle Fahrerdienste für Unternehmen, die zuverlässige und effiziente Zustellleistungen suchen. Transparente, faire und datengetriebene Abläufe für Fahrer, Flottenbesitzer und Partner.",
+    "features": {
+      "fleet_solutions": "Flottenlösungen — Komplettservice für Einstellung und Betrieb.",
+      "driver_network": "Fahrer- & Partnernetzwerk — Geprüfte Fahrer und vertrauenswürdige Partner.",
+      "fleet_insights": "Flottenanalysen — Datenbasierte Leistung und Routenverfolgung.",
+      "collaboration": "Transparente Zusammenarbeit — Klare Verträge und offene Kommunikation."
+    },
+    "why_work": {
+      "title": "Warum mit uns arbeiten?",
+      "description": "Delia fungiert als externer Betriebspartner, sodass Unternehmen kein eigenes Flottenmanagement aufbauen müssen. Wir bieten zuverlässige Abläufe, datenbasierte Verbesserungen und ein transparentes Partnerschaftsmodell, das mit Ihrem Unternehmen wächst."
+    },
+    "drivers": {
+      "title": "Für Fahrer & Flottenbesitzer",
+      "points": [
+        "Werden Sie Teil eines zuverlässigen Logistiknetzwerks.",
+        "Klare Koordination, regelmäßige Arbeit und schnelle Zahlungen.",
+        "Langfristige Chancen und Leistungsfeedback."
+      ]
+    }
+  },
+
+  "services_section": {
+    "title": "Unsere Kerndienstleistungen",
+    "description": "Delia UG bietet Zuverlässigkeit, Skalierbarkeit und Effizienz auf allen Ebenen der Logistik — angetrieben durch Technologie und datenbasierte Leistung.",
+    "items": {
+      "last_mile_delivery": {
+        "title": "Zustellung auf der letzten Meile",
+        "description": "Zuverlässige und schnelle Lösungen für die Zustellung auf der letzten Meile – für Unternehmen, die pünktliche Leistung und Kundenzufriedenheit erwarten."
+      },
+      "fleet_management": {
+        "title": "Flottenmanagement",
+        "description": "Umfassende Flottenlösungen mit Fahrermanagement, Nachverfolgung und Leistungsanalysen für operative Exzellenz."
+      },
+      "international_coverage": {
+        "title": "Internationale Abdeckung",
+        "description": "Grenzüberschreitende Logistikunterstützung in ganz Europa – mit professioneller Handhabung von Compliance, Dokumentation und Koordination."
+      },
+      "support_24_7": {
+        "title": "24/7 Unterstützung",
+        "description": "Unser engagiertes Team sorgt dafür, dass Ihre Lieferungen und Abläufe nie stillstehen — Tag und Nacht verfügbar für alle Logistikanfragen."
+      }
+    }
+  },
+
+  "contact_section": {
+    "title": "Sprechen wir über Logistik",
+    "description": "Ob Kurier, Flotte oder Unternehmen – wir bieten strukturierte, transparente und datengetriebene Logistiklösungen.",
+    "cards": {
+      "onboarding": {
+        "title": "Onboarding-Team",
+        "email": "onboarding@deliaug.com",
+        "description": "Für Unterstützung bei Bewerbungen oder Dokumenten."
+      },
+      "support": {
+        "title": "Flotten- & Kurierunterstützung",
+        "email": "support@deliaug.com",
+        "description": "Für aktive Partner oder Kuriere, die Hilfe benötigen."
+      },
+      "general": {
+        "title": "Allgemeine Anfragen",
+        "email": "info@deliaug.com",
+        "description": "Für Presse, Partnerschaften oder allgemeine Fragen."
+      },
+      "legal": {
+        "title": "Recht & Compliance",
+        "email": "legal@deliaug.com",
+        "description": "Für Vertrags- oder Compliance-Anfragen."
+      }
+    }
+  },
+
+  "about_section": {
+    "title": "Über Delia UG",
+    "description": "Delia UG ist ein in Bonn ansässiges Logistikunternehmen, das 2024 gegründet wurde und sich auf strukturierte, technologiegestützte Zustellprozesse der letzten Meile konzentriert. Wir helfen Unternehmen, effizient zu wachsen, indem wir Flotten, Fahrer und Abläufe mit Transparenz und messbarer Leistung verwalten.",
+    "mission": {
+      "title": "Mission",
+      "description": "Zuverlässiges Flotten- und Fahrermanagement durch strukturierte Abläufe, transparente Kommunikation und datenbasierte Leistung – für Beständigkeit, Vertrauen und Effizienz bei jedem Kunden."
+    },
+    "vision": {
+      "title": "Vision",
+      "description": "Deutschlands vertrauenswürdigster Partner für Flottenbetrieb zu werden – Unternehmen, Fahrer und Partner zu befähigen, durch Zusammenarbeit und Innovation nachhaltiges Wachstum zu erreichen."
+    },
+    "values": {
+      "title": "Kernwerte",
+      "list": [
+        "Zuverlässigkeit",
+        "Teamarbeit",
+        "Transparenz",
+        "Innovation & Daten",
+        "Verantwortlichkeit"
+      ]
+    },
+    "details": {
+      "title": "Über Details",
+      "description": "Delia UG agiert als externer Logistikpartner und bietet vollständige Outsourcing-Lösungen für Flotten an. Von Fahrermanagement bis hin zu Datenanalysen sind unsere Dienstleistungen darauf ausgelegt, Routen zu optimieren, die Liefergenauigkeit zu erhöhen und Betriebskosten zu senken. Mit Fokus auf Fairness und Transparenz baut Delia UG langfristige Partnerschaften mit Kunden und Fahrern auf, die durch messbare Leistungsdaten unterstützt werden."
+    }
+  },
+
+  "footer": {
+    "description": "Bonner Logistikunternehmen, das strukturierte, datengesteuerte Flotten- und Fahrerdienste in ganz Deutschland und Europa anbietet.",
+    "navigation": {
+      "title": "Navigation",
+      "home": "Startseite",
+      "services": "Dienstleistungen",
+      "join_network": "Netzwerk beitreten",
+      "contact": "Kontakt"
+    },
+    "legal": {
+      "title": "Rechtliches",
+      "impressum": "Impressum",
+      "privacy": "Datenschutzerklärung",
+      "terms": "Allgemeine Geschäftsbedingungen",
+      "cookies": "Cookies-Richtlinie"
+    },
+    "contact": {
+      "title": "Kontakt"
+    },
+    "about": {
+      "title": "Über uns",
+      "values_label": "Werte:",
+      "values": "Zuverlässigkeit · Teamarbeit · Transparenz · Innovation · Datengetriebenes Wachstum"
+    },
+    "bottom": {
+      "rights": "Delia UG · Bonn, Deutschland — Alle Rechte vorbehalten © 2025",
+      "powered": "Bereitgestellt von Abaris Software"
+    }
+  },
+
+  "apply_driver": "Bewerben Sie sich als Fahrer"
+}

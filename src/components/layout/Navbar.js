@@ -1,17 +1,21 @@
 "use client";
+
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Languages } from "lucide-react"; // ✅ Import Languages icon
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
+import i18n from "../../i18n/i18n"; // ✅ make sure your i18n config is imported
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("banner");
+  const { t } = useTranslation();
 
   // ✅ Smooth scroll handler
   const handleScroll = (id) => {
     const section = document.getElementById(id);
     if (section) {
-      const yOffset = -80; // Offset for fixed navbar
+      const yOffset = -80;
       const y =
         section.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
@@ -21,8 +25,7 @@ export default function Navbar() {
 
   // ✅ Detect active section on scroll
   useEffect(() => {
-    const sections = ["banner", "network-join", "services", "contact", "about"];
-
+    const sections = ["banner", "network-join", "services", "about", "contact"];
     const handleActiveSection = () => {
       let current = "banner";
       sections.forEach((id) => {
@@ -40,6 +43,21 @@ export default function Navbar() {
     window.addEventListener("scroll", handleActiveSection);
     return () => window.removeEventListener("scroll", handleActiveSection);
   }, []);
+
+  // ✅ Navigation items
+  const navItems = [
+    { id: "banner", label: t("nav.home", "Home") },
+    { id: "services", label: t("nav.services", "Our Services") },
+    { id: "network-join", label: t("nav.join", "Join") },
+    { id: "about", label: t("nav.about", "About") },
+    { id: "contact", label: t("nav.contact", "Get in Touch") },
+  ];
+
+  // ✅ Language toggle
+  const toggleLanguage = () => {
+    const newLang = i18n.language === "en" ? "de" : "en";
+    i18n.changeLanguage(newLang);
+  };
 
   return (
     <nav className="fixed w-full z-50 bg-black/60 backdrop-blur-md border-b border-gray-800 text-white transition-all italic font-bold">
@@ -62,14 +80,8 @@ export default function Navbar() {
         </div>
 
         {/* ✅ Desktop Menu */}
-        <div className="hidden md:flex space-x-8 font-medium relative">
-          {[
-            { id: "banner", label: "Home" },
-            { id: "network-join", label: "Join Network" },
-            { id: "services", label: "Services" },
-            { id: "contact", label: "Contact" },
-            { id: "about", label: "About" },
-          ].map((item) => (
+        <div className="hidden md:flex space-x-8 font-medium relative items-center">
+          {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => handleScroll(item.id)}
@@ -82,6 +94,15 @@ export default function Navbar() {
               {item.label}
             </button>
           ))}
+
+          {/* ✅ Translation Button */}
+          <button
+            onClick={toggleLanguage}
+            className="p-2 hover:text-orange-400 transition"
+            title="Switch Language"
+          >
+            <Languages size={22} />
+          </button>
         </div>
 
         {/* ✅ Mobile Menu Toggle */}
@@ -97,13 +118,7 @@ export default function Navbar() {
       {/* ✅ Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-black/90 text-center border-t border-gray-800 py-4 space-y-4">
-          {[
-            { id: "banner", label: "Home" },
-            { id: "network-join", label: "Join Network" },
-            { id: "services", label: "Services" },
-            { id: "contact", label: "Contact" },
-            { id: "about", label: "About" },
-          ].map((item) => (
+          {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => handleScroll(item.id)}
@@ -116,6 +131,17 @@ export default function Navbar() {
               {item.label}
             </button>
           ))}
+
+          {/* ✅ Translation button for mobile */}
+          <button
+            onClick={toggleLanguage}
+            className="flex justify-center w-full mt-4 hover:text-orange-400 transition"
+          >
+            <Languages size={22} />
+            <span className="ml-2">
+              {i18n.language === "en" ? "DE" : "EN"}
+            </span>
+          </button>
         </div>
       )}
     </nav>

@@ -1,8 +1,11 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer className="bg-gray-900 text-white border-t border-gray-800">
       <div className="container mx-auto px-6 py-12">
@@ -22,20 +25,22 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm text-gray-400 max-w-xs leading-relaxed">
-              Bonn-based logistics company providing structured, data-driven
-              fleet and driver services across Germany and Europe.
+              {t(
+                "footer.description",
+                "Bonn-based logistics company providing structured, data-driven fleet and driver services across Germany and Europe."
+              )}
             </p>
           </div>
 
           {/* Navigation */}
           <div className="flex flex-col md:items-start items-center">
             <h4 className="text-sm font-semibold mb-3 uppercase tracking-wide">
-              Navigation
+              {t("footer.navigation.title", "Navigation")}
             </h4>
             <ul className="space-y-2 text-gray-400 text-sm">
               <li>
                 <a href="#home" className="hover:text-white transition-colors">
-                  Home
+                  {t("footer.navigation.home", "Home")}
                 </a>
               </li>
               <li>
@@ -43,7 +48,7 @@ export default function Footer() {
                   href="#services"
                   className="hover:text-white transition-colors"
                 >
-                  Services
+                  {t("footer.navigation.services", "Services")}
                 </a>
               </li>
               <li>
@@ -51,7 +56,7 @@ export default function Footer() {
                   href="#network-join"
                   className="hover:text-white transition-colors"
                 >
-                  Join Network
+                  {t("footer.navigation.join_network", "Join Network")}
                 </a>
               </li>
               <li>
@@ -59,7 +64,7 @@ export default function Footer() {
                   href="#contact"
                   className="hover:text-white transition-colors"
                 >
-                  Contact
+                  {t("footer.navigation.contact", "Contact")}
                 </a>
               </li>
             </ul>
@@ -68,22 +73,27 @@ export default function Footer() {
           {/* Legal */}
           <div className="flex flex-col md:items-start items-center">
             <h4 className="text-sm font-semibold mb-3 uppercase tracking-wide">
-              Legal
+              {t("footer.legal.title", "Legal")}
             </h4>
             <ul className="space-y-2 text-gray-400 text-sm">
               <li>
                 <Link href="/Legal/Impressum" className="hover:underline">
-                  Impressum
+                  {t("footer.legal.impressum", "Impressum")}
                 </Link>
               </li>
               <li>
                 <Link href="/Legal/privacy" className="hover:underline">
-                  Privacy Policy
+                  {t("footer.legal.privacy", "Privacy Policy")}
                 </Link>
               </li>
               <li>
                 <Link href="/Legal/Terms" className="hover:underline">
-                  Terms & Conditions
+                  {t("footer.legal.terms", "Terms & Conditions")}
+                </Link>
+              </li>
+              <li>
+                <Link href="/Legal/Cookies" className="hover:underline">
+                  {t("footer.legal.cookies", "Cookies")}
                 </Link>
               </li>
             </ul>
@@ -92,7 +102,7 @@ export default function Footer() {
           {/* Contact & Socials */}
           <div className="flex flex-col md:items-start items-center">
             <h4 className="text-sm font-semibold mb-3 uppercase tracking-wide">
-              Contact
+              {t("footer.contact.title", "Contact")}
             </h4>
             <ul className="space-y-1 text-gray-400 text-sm text-center md:text-left">
               <li>
@@ -135,23 +145,34 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Mission & Values */}
+          {/* About & Values */}
           <div className="flex flex-col md:items-start items-center text-center md:text-left">
             <h4 className="text-sm font-semibold mb-3 uppercase tracking-wide">
-              About Us
+              {t("footer.about.title", "About Us")}
             </h4>
             <p className="text-gray-400 text-sm leading-relaxed">
-              <span className="font-semibold text-gray-300">Values:</span>{" "}
-              Reliability · Teamwork · Transparency · Innovation · Data-Driven
-              Growth
+              <span className="font-semibold text-gray-300">
+                {t("footer.about.values_label", "Values:")}
+              </span>{" "}
+              {t(
+                "footer.about.values",
+                "Reliability · Teamwork · Transparency · Innovation · Data-Driven Growth"
+              )}
             </p>
           </div>
         </div>
 
         {/* Footer Bottom */}
         <div className="mt-10 border-t border-gray-800 pt-6 text-center text-sm text-gray-400">
-          <p>Delia UG · Bonn, Germany — All rights reserved © 2025</p>
-          <p className="mt-1">Powered by Abaris Software</p>
+          <p>
+            {t(
+              "footer.bottom.rights",
+              "Delia UG · Bonn, Germany — All rights reserved © 2025"
+            )}
+          </p>
+          <p className="mt-1">
+            {t("footer.bottom.powered", "Powered by Abaris Software")}
+          </p>
         </div>
       </div>
     </footer>

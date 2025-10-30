@@ -1,49 +1,78 @@
-import Link from "next/link";
+"use client";
+
+import { useTranslation } from "react-i18next";
 import {
   Truck,
   UserCheck,
   BarChart,
   Handshake,
-  ArrowRight,
 } from "lucide-react";
 
 export default function JoinNetwork() {
+  const { t } = useTranslation();
+
+  // Split heading so only “as a Driver or Partner” becomes orange
+  const headingText = t(
+    "join_network_section.heading",
+    "Join the Network — as a Driver or Partner"
+  );
+  const [mainText, orangeText] = headingText.split(" — ");
+
   return (
     <section
       id="network-join"
       className="relative w-full py-20 text-black bg-white"
     >
       <div className="container mx-auto max-w-6xl px-6 text-center">
-        {/* Heading */}
+        {/* ✅ Heading */}
         <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 tracking-tight">
-          Join the Network —{" "}
-          <span className="text-orange-500">as a Driver or Partner</span>
+          {mainText}
+          {orangeText && (
+            <>
+              {" — "}
+              <span className="text-orange-500">{orangeText}</span>
+            </>
+          )}
         </h2>
+
+        {/* ✅ Description */}
         <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed">
-          Delia UG provides structured fleet solutions and professional driver
-          services for businesses seeking reliable, efficient last-mile
-          delivery. Transparent, fair, and data-driven operations for drivers,
-          fleet owners, and partners.
+          {t(
+            "join_network_section.description",
+            "Delia UG provides structured fleet solutions and professional driver services for businesses seeking reliable, efficient last-mile delivery. Transparent, fair, and data-driven operations for drivers, fleet owners, and partners."
+          )}
         </p>
 
-        {/* Features Grid */}
+        {/* ✅ Features Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-20">
           {[
             {
-              icon: <Truck className="w-8 h-8 text-orange-500" />,
-              text: "Fleet Solutions — Turnkey fleet hiring and operations.",
+              icon: <Truck key="truck" className="w-8 h-8 text-orange-500" />,
+              text: t(
+                "join_network_section.features.fleet_solutions",
+                "Fleet Solutions — Turnkey fleet hiring and operations."
+              ),
             },
             {
-              icon: <UserCheck className="w-8 h-8 text-orange-500" />,
-              text: "Driver & Partner Network — Vetted drivers and trusted partners.",
+              icon: <UserCheck key="user" className="w-8 h-8 text-orange-500" />,
+              text: t(
+                "join_network_section.features.driver_network",
+                "Driver & Partner Network — Vetted drivers and trusted partners."
+              ),
             },
             {
-              icon: <BarChart className="w-8 h-8 text-orange-500" />,
-              text: "Fleet Insights — Data-supported performance and route tracking.",
+              icon: <BarChart key="chart" className="w-8 h-8 text-orange-500" />,
+              text: t(
+                "join_network_section.features.fleet_insights",
+                "Fleet Insights — Data-supported performance and route tracking."
+              ),
             },
             {
-              icon: <Handshake className="w-8 h-8 text-orange-500" />,
-              text: "Transparent Collaboration — Clear contracts and open communication.",
+              icon: <Handshake key="handshake" className="w-8 h-8 text-orange-500" />,
+              text: t(
+                "join_network_section.features.collaboration",
+                "Transparent Collaboration — Clear contracts and open communication."
+              ),
             },
           ].map((item, index) => (
             <div key={index} className="text-center p-6">
@@ -55,28 +84,35 @@ export default function JoinNetwork() {
           ))}
         </div>
 
-        {/* Why Work With Us */}
+        {/* ✅ Why Work With Us */}
         <div className="max-w-3xl mx-auto text-center">
           <h3 className="text-3xl font-bold mb-4 text-gray-900">
-            Why Work With Us
+            {t("join_network_section.why_work.title", "Why Work With Us")}
           </h3>
           <p className="text-gray-600 text-lg leading-relaxed mb-8">
-            Delia acts as an external operations partner so companies don’t have
-            to build internal fleet management from scratch. We deliver
-            dependable operations, data-supported improvements, and a
-            transparent partnership model that scales as your business grows.
+            {t(
+              "join_network_section.why_work.description",
+              "Delia acts as an external operations partner so companies don’t have to build internal fleet management from scratch. We deliver dependable operations, data-supported improvements, and a transparent partnership model that scales as your business grows."
+            )}
           </p>
         </div>
 
-        {/* For Drivers & Fleet Owners */}
+        {/* ✅ For Drivers & Fleet Owners */}
         <div className="mt-20 bg-orange-50 py-12 px-6 rounded-2xl shadow-sm">
           <h3 className="text-2xl font-semibold mb-4 text-gray-900">
-            For Drivers & Fleet Owners
+            {t("join_network_section.drivers.title", "For Drivers & Fleet Owners")}
           </h3>
           <ul className="text-gray-700 text-lg space-y-2 max-w-2xl mx-auto text-left sm:text-center">
-            <li>• Join a reliable logistics network.</li>
-            <li>• Clear coordination, regular work, and fast payments.</li>
-            <li>• Long-term opportunities and performance feedback.</li>
+            {t("join_network_section.drivers.points", {
+              returnObjects: true,
+              defaultValue: [
+                "Join a reliable logistics network.",
+                "Clear coordination, regular work, and fast payments.",
+                "Long-term opportunities and performance feedback.",
+              ],
+            }).map((point, i) => (
+              <li key={i}>• {point}</li>
+            ))}
           </ul>
         </div>
       </div>
