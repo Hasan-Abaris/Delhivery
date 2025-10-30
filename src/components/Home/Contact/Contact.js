@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 import {
   DocumentTextIcon,
   UsersIcon,
@@ -9,6 +10,8 @@ import {
 } from "@heroicons/react/24/outline";
 
 const ContactSection = () => {
+  const { t } = useTranslation();
+
   return (
     <section
       id="contact"
@@ -29,45 +32,50 @@ const ContactSection = () => {
           id="contact-heading"
           className="text-4xl sm:text-5xl font-extrabold text-white mb-4 drop-shadow-lg tracking-tight"
         >
-          Let&apos;s Talk Logistics
+          {t("contact_section.title", "Let's Talk Logistics")}
         </h2>
         <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed opacity-90">
-          Whether you&apos;re a courier, fleet, or enterprise, we provide
-          structured, transparent, and data-driven logistics solutions.
+          {t(
+            "contact_section.description",
+            "Whether you're a courier, fleet, or enterprise, we provide structured, transparent, and data-driven logistics solutions."
+          )}
         </p>
       </div>
 
       {/* Contact Cards */}
       <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <ContactCard
-            title="Onboarding Team"
-            email="onboarding@deliaug.com"
-            description="For help applying or submitting documents."
-            icon="file-text"
-            gradient="from-gray-700 to-gray-800"
-          />
-          <ContactCard
-            title="Fleet & Courier Support"
-            email="support@deliaug.com"
-            description="For active partners or couriers needing help."
-            icon="users"
-            gradient="from-gray-700 to-gray-800"
-          />
-          <ContactCard
-            title="General Inquiries"
-            email="info@deliaug.com"
-            description="For press, partnerships, or general questions."
-            icon="mail"
-            gradient="from-orange-500 to-red-500"
-          />
-          <ContactCard
-            title="Legal & Compliance"
-            email="legal@deliaug.com"
-            description="For contracts or compliance inquiries."
-            icon="scale"
-            gradient="from-orange-500 to-red-500"
-          />
+          {[
+            {
+              key: "onboarding",
+              icon: "file-text",
+              gradient: "from-gray-700 to-gray-800",
+            },
+            {
+              key: "support",
+              icon: "users",
+              gradient: "from-gray-700 to-gray-800",
+            },
+            {
+              key: "general",
+              icon: "mail",
+              gradient: "from-orange-500 to-red-500",
+            },
+            {
+              key: "legal",
+              icon: "scale",
+              gradient: "from-orange-500 to-red-500",
+            },
+          ].map((card) => (
+            <ContactCard
+              key={card.key}
+              title={t(`contact_section.cards.${card.key}.title`)}
+              email={t(`contact_section.cards.${card.key}.email`)}
+              description={t(`contact_section.cards.${card.key}.description`)}
+              icon={card.icon}
+              gradient={card.gradient}
+            />
+          ))}
         </div>
       </div>
     </section>

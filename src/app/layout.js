@@ -1,20 +1,23 @@
-import './globals.css'
-import Navbar from '../components/layout/Navbar'
-import Footer from '../components/layout/Footer'
+import "./globals.css";
+import "../i18n/i18n"; // ✅ make sure your translations initialize early
+import ClientLayout from "../components/ClientLayout";
 
 export const metadata = {
-  title: 'Courier Connect | Fast & Reliable Deliveries',
-  description: 'Track shipments and manage deliveries easily.',
-}
+  title: "Courier Connect | Fast & Reliable Deliveries",
+  description: "Track shipments and manage deliveries easily.",
+};
 
 export default function RootLayout({ children }) {
   return (
+    // ✅ Force browser to treat site as English
     <html lang="en">
-      <body className="bg-gray-50 text-gray-800">
-        <Navbar />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
+      <head>
+        {/* ✅ Prevent Chrome auto-translate popup */}
+        <meta httpEquiv="content-language" content="en" />
+      </head>
+      <body className="bg-gray-50 text-gray-800" suppressHydrationWarning={true}>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
-  )
+  );
 }

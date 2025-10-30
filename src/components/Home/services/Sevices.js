@@ -1,34 +1,35 @@
 "use client";
+
 import React from "react";
-import { TruckIcon, GlobeAltIcon, ClockIcon, ChartBarIcon } from "@heroicons/react/24/outline";
+import { useTranslation } from "react-i18next";
+import {
+  TruckIcon,
+  GlobeAltIcon,
+  ClockIcon,
+  ChartBarIcon,
+} from "@heroicons/react/24/outline";
 
 function Services() {
+  const { t } = useTranslation();
+
   const services = [
     {
-      title: "Last-Mile Delivery",
-      description:
-        "Reliable and fast last-mile delivery solutions designed for businesses that demand on-time performance and customer satisfaction.",
+      key: "last_mile_delivery",
       icon: <TruckIcon className="w-8 h-8 text-white" />,
       gradient: "from-orange-500 to-red-500",
     },
     {
-      title: "Fleet Management",
-      description:
-        "End-to-end structured fleet solutions with driver management, tracking, and performance insights for operational excellence.",
+      key: "fleet_management",
       icon: <ChartBarIcon className="w-8 h-8 text-white" />,
       gradient: "from-gray-700 to-gray-800",
     },
     {
-      title: "International Coverage",
-      description:
-        "Cross-border logistics support across Europe with compliance, documentation, and coordination handled professionally.",
+      key: "international_coverage",
       icon: <GlobeAltIcon className="w-8 h-8 text-white" />,
       gradient: "from-gray-700 to-gray-800",
     },
     {
-      title: "24/7 Support",
-      description:
-        "Our dedicated team ensures your deliveries and operations never stop — available day and night for all logistics queries.",
+      key: "support_24_7",
       icon: <ClockIcon className="w-8 h-8 text-white" />,
       gradient: "from-orange-500 to-red-500",
     },
@@ -40,15 +41,20 @@ function Services() {
       className="py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 text-white"
     >
       <div className="max-w-6xl mx-auto px-6 text-center">
+        {/* ✅ Heading */}
         <h2 className="text-4xl sm:text-5xl font-extrabold mb-8">
-          Our Core Services
+          {t("services_section.title", "Our Core Services")}
         </h2>
+
+        {/* ✅ Description */}
         <p className="text-gray-300 text-lg max-w-3xl mx-auto mb-16">
-          Delia UG delivers reliability, scalability, and efficiency across all
-          levels of logistics — powered by technology and data-driven
-          performance.
+          {t(
+            "services_section.description",
+            "Delia UG delivers reliability, scalability, and efficiency across all levels of logistics — powered by technology and data-driven performance."
+          )}
         </p>
 
+        {/* ✅ Services Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <div
@@ -60,9 +66,11 @@ function Services() {
               >
                 {service.icon}
               </div>
-              <h3 className="text-xl font-bold mb-3">{service.title}</h3>
+              <h3 className="text-xl font-bold mb-3">
+                {t(`services_section.items.${service.key}.title`)}
+              </h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                {service.description}
+                {t(`services_section.items.${service.key}.description`)}
               </p>
             </div>
           ))}
