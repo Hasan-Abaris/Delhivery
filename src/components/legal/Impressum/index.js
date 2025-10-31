@@ -6,10 +6,11 @@ export default function LegalNotice() {
   const { t } = useTranslation();
 
   return (
-    <div className="container mx-auto px-6 py-16 ">
+    <div className="container mx-auto px-6 py-16">
       <div className="max-w-4xl mx-auto mt-10">
+        {/* Page Title */}
         <h1 className="text-4xl font-bold mb-8 text-center">
-          {t("legalNotice.title")}
+          {t("legal_notice.title")}
         </h1>
 
         <div className="grid gap-6">
@@ -17,11 +18,11 @@ export default function LegalNotice() {
           <div className="rounded-lg border bg-card text-card-foreground shadow-sm">
             <div className="flex flex-col space-y-1.5 p-6">
               <h3 className="text-2xl font-semibold leading-none tracking-tight">
-                {t("legalNotice.company.title")}
+                {t("legal_notice.company.title")}
               </h3>
             </div>
             <div className="p-6 pt-0">
-              <p className="font-semibold">{t("legalNotice.company.name")}</p>
+              <p className="font-semibold">{t("legal_notice.company.name")}</p>
             </div>
           </div>
 
@@ -29,12 +30,12 @@ export default function LegalNotice() {
           <div className="rounded-lg border bg-card text-card-foreground shadow-sm">
             <div className="flex flex-col space-y-1.5 p-6">
               <h3 className="text-2xl font-semibold leading-none tracking-tight">
-                {t("legalNotice.address.title")}
+                {t("legal_notice.address.title")}
               </h3>
             </div>
             <div className="p-6 pt-0 space-y-1">
-              <p>{t("legalNotice.address.city")}</p>
-              <p>{t("legalNotice.address.country")}</p>
+              <p>{t("legal_notice.address.city")}</p>
+              <p>{t("legal_notice.address.country")}</p>
             </div>
           </div>
 
@@ -42,12 +43,12 @@ export default function LegalNotice() {
           <div className="rounded-lg border bg-card text-card-foreground shadow-sm">
             <div className="flex flex-col space-y-1.5 p-6">
               <h3 className="text-2xl font-semibold leading-none tracking-tight">
-                {t("legalNotice.contact.title")}
+                {t("legal_notice.contact.title")}
               </h3>
             </div>
             <div className="p-6 pt-0 space-y-1">
-              <p>{t("legalNotice.contact.phone")}</p>
-              <p>{t("legalNotice.contact.email")}</p>
+              <p>{t("legal_notice.contact.phone")}</p>
+              <p>{t("legal_notice.contact.email")}</p>
             </div>
           </div>
 
@@ -55,21 +56,21 @@ export default function LegalNotice() {
           <div className="rounded-lg border bg-card text-card-foreground shadow-sm">
             <div className="flex flex-col space-y-1.5 p-6">
               <h3 className="text-2xl font-semibold leading-none tracking-tight">
-                {t("legalNotice.legalInfo.title")}
+                {t("legal_notice.legal_info.title")}
               </h3>
             </div>
             <div className="p-6 pt-0 space-y-2">
-              <p>{t("legalNotice.legalInfo.registerCourt")}</p>
-              <p>{t("legalNotice.legalInfo.commercialNumber")}</p>
-              <p>{t("legalNotice.legalInfo.vatId")}</p>
-              <p>{t("legalNotice.legalInfo.director")}</p>
+              <p>{t("legal_notice.legal_info.register_court")}</p>
+              <p>{t("legal_notice.legal_info.commercial_number")}</p>
+              <p>{t("legal_notice.legal_info.vat_id")}</p>
+              <p>{t("legal_notice.legal_info.director")}</p>
               <br />
               <p className="font-medium">
-                {t("legalNotice.legalInfo.responsible")}
+                {t("legal_notice.legal_info.responsible")}
               </p>
-              <p>{t("legalNotice.legalInfo.companyName")}</p>
-              <p>{t("legalNotice.legalInfo.street")}</p>
-              <p>{t("legalNotice.legalInfo.zipCity")}</p>
+              <p>{t("legal_notice.legal_info.company_name")}</p>
+              <p>{t("legal_notice.legal_info.street")}</p>
+              <p>{t("legal_notice.legal_info.zip_city")}</p>
             </div>
           </div>
 
@@ -77,12 +78,12 @@ export default function LegalNotice() {
           <div className="rounded-lg border bg-card text-card-foreground shadow-sm">
             <div className="flex flex-col space-y-1.5 p-6">
               <h3 className="text-2xl font-semibold leading-none tracking-tight">
-                {t("legalNotice.liability.title")}
+                {t("legal_notice.liability.title")}
               </h3>
             </div>
             <div className="p-6 pt-0">
               <p className="text-sm text-muted-foreground">
-                {t("legalNotice.liability.text")}
+                {t("legal_notice.liability.text")}
               </p>
             </div>
           </div>
