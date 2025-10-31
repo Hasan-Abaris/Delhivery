@@ -1,9 +1,11 @@
 "use client";
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 
 export default function CookiesSettings() {
+  const { t } = useTranslation();
   const [cookies, setCookies] = useState({
     necessary: true,
     analytics: false,
@@ -11,13 +13,12 @@ export default function CookiesSettings() {
   });
 
   const handleToggle = (type) => {
-    if (type === "necessary") return; // can't disable necessary cookies
+    if (type === "necessary") return; // cannot disable necessary cookies
     setCookies({ ...cookies, [type]: !cookies[type] });
   };
 
   const handleSave = () => {
-    // You could later integrate with localStorage or cookie consent logic
-    alert("Your cookie preferences have been saved.");
+    alert(t("cookies.alert_saved"));
   };
 
   return (
@@ -25,17 +26,13 @@ export default function CookiesSettings() {
       <div className="container mx-auto px-6 py-16">
         <div className="max-w-4xl mx-auto mt-15">
           <h1 className="text-4xl font-bold mb-8 text-center">
-            Cookie Settings
+            {t("cookies.title")}
           </h1>
 
           {/* Intro */}
           <div className="rounded-lg border bg-card text-card-foreground shadow-sm mb-6">
             <div className="p-6">
-              <p className="text-muted-foreground">
-                We use cookies to improve your browsing experience, analyze
-                website traffic, and serve personalized content. Manage your
-                preferences below.
-              </p>
+              <p className="text-muted-foreground">{t("cookies.intro")}</p>
             </div>
           </div>
 
@@ -46,11 +43,10 @@ export default function CookiesSettings() {
               <div className="flex items-center justify-between p-6">
                 <div>
                   <h3 className="text-2xl font-semibold leading-none tracking-tight">
-                    Necessary Cookies
+                    {t("cookies.necessary.title")}
                   </h3>
                   <p className="text-muted-foreground mt-2">
-                    These cookies are essential for the website to function
-                    properly and cannot be disabled.
+                    {t("cookies.necessary.desc")}
                   </p>
                 </div>
                 <Switch checked={cookies.necessary} disabled />
@@ -62,10 +58,10 @@ export default function CookiesSettings() {
               <div className="flex items-center justify-between p-6">
                 <div>
                   <h3 className="text-2xl font-semibold leading-none tracking-tight">
-                    Analytics Cookies
+                    {t("cookies.analytics.title")}
                   </h3>
                   <p className="text-muted-foreground mt-2">
-                    Help us understand how visitors interact with our website.
+                    {t("cookies.analytics.desc")}
                   </p>
                 </div>
                 <Switch
@@ -80,10 +76,10 @@ export default function CookiesSettings() {
               <div className="flex items-center justify-between p-6">
                 <div>
                   <h3 className="text-2xl font-semibold leading-none tracking-tight">
-                    Marketing Cookies
+                    {t("cookies.marketing.title")}
                   </h3>
                   <p className="text-muted-foreground mt-2">
-                    Used to show personalized ads and measure ad performance.
+                    {t("cookies.marketing.desc")}
                   </p>
                 </div>
                 <Switch
@@ -97,7 +93,7 @@ export default function CookiesSettings() {
           {/* Save Button */}
           <div className="flex justify-center mt-8">
             <Button onClick={handleSave} className="px-8 py-2">
-              Save Preferences
+              {t("cookies.save_button")}
             </Button>
           </div>
         </div>
